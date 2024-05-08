@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:w24_app_dev_2_exam_2/task_1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,15 +11,31 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'App Dev 2 Exam 2',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: Scaffold(
-        appBar: AppBar(),
-        body: Placeholder(),
+        body: MenuScreen(),
+      ),
+    );
+  }
+}
+
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Task1Main()));
+              },
+              child: const Text('Task 1'))
+        ],
       ),
     );
   }
