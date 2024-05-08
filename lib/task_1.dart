@@ -59,33 +59,33 @@ class _Task1MainState extends State<Task1Main> with TickerProviderStateMixin {
             }
           });
           return Scaffold(
-              appBar: AppBar(
-                bottom: TabBar(
-                  tabs: tabs,
-                ),
+            appBar: AppBar(
+              bottom: TabBar(
+                tabs: tabs,
               ),
-              body: TabBarView(
-                  children:
-                      (tabs.map<Widget>((currTab) => FutureBuilder<dynamic>(
-                            future: itemsJson,
-                            builder: (
-                              BuildContext context,
-                              AsyncSnapshot<dynamic> snapshot,
-                            ) {
-                              if (snapshot.hasData) {
-                                var currItemData = snapshot.data[_activeIndex];
-                                return Column(children: [
-                                  Expanded(
-                                      child:
-                                          Image.network(currItemData['image'])),
-                                  Text(currItemData.toString())
-                                ]);
-                              } else {
-                                return const Center(
-                                    child: CircularProgressIndicator());
-                              }
-                            },
-                          ))).toList()));
+            ),
+            body: TabBarView(
+              children: (tabs.map<Widget>(
+                (currTab) => FutureBuilder<dynamic>(
+                  future: itemsJson,
+                  builder: (
+                    BuildContext context,
+                    AsyncSnapshot<dynamic> snapshot,
+                  ) {
+                    if (snapshot.hasData) {
+                      var currItemData = snapshot.data[_activeIndex];
+                      return Column(children: [
+                        Expanded(child: Image.network(currItemData['image'])),
+                        Text(currItemData.toString())
+                      ]);
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ),
+              )).toList(),
+            ),
+          );
         },
       ),
     );
@@ -93,7 +93,10 @@ class _Task1MainState extends State<Task1Main> with TickerProviderStateMixin {
 }
 
 Future<dynamic> getItems() async {
-  var resp =
-      await http.get(Uri.parse('https://fakestoreapi.com/products?limit=5'));
+  var resp = await http.get(
+    Uri.parse(
+      'https://fakestoreapi.com/products?limit=5',
+    ),
+  );
   return jsonDecode(resp.body);
 }
