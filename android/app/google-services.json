@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "844145265735",
+    "project_id": "w24appdev2exam2",
+    "storage_bucket": "w24appdev2exam2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844145265735:android:25643ac6a2761287967562",
+        "android_client_info": {
+          "package_name": "com.example.w24_app_dev_2_exam_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs4bnL0DL0wPuYVhxyiKmbp1eWNa_wadA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
