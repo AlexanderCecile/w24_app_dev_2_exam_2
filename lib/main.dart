@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:w24_app_dev_2_exam_2/task_1.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+
+import 'firebase_options.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  Future<void> initializeDefault() async {
+    FirebaseApp app = await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    print('Initialized default app $app');
+  }
 
   // This widget is the root of your application.
   @override
