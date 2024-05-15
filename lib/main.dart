@@ -5,21 +5,26 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  /*
   Future<void> initializeDefault() async {
     FirebaseApp app = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    print('Initialized default app $app');
+    debugPrint('Initialized default app $app');
   }
+  */
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(

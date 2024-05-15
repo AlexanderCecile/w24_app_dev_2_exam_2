@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'w24appdevexam',
     storageBucket: 'w24appdevexam.appspot.com',
   );
+
 }
